@@ -19,9 +19,10 @@ PlantPorts <- read_excel("datasets/supply_chain_logistics_problem.xlsx", sheet =
 
 
 # OrderList
-
+# explorando dados
 # primeiras linhas do dataset
 head(OrderList)
+
 
 # vizualizando dimensoes da tabela
 dim(OrderList)
@@ -46,6 +47,8 @@ unique(OrderList$`Service Level`)
 unique(OrderList$`Plant Code`)
 unique(OrderList$`Destination Port`)
 
+
+
 # analises uteis utilizando tidyverse %>%
 
 OrderList %>%
@@ -54,10 +57,25 @@ OrderList %>%
   arrange(desc(n)) %>%
   View()
 
+
 # buscando valores nulos
 sum(is.na(OrderList))
 
-# to get number of which contains na
-sum(is.na(OrderList[, c("Service Level", "Origin Port")]))
+# valores nulos por variavel
+sum(is.na(OrderList[, c("Service Level")]))
 
 # variaveis numericas
+# 
+summary(OrderList$`Ship ahead day count`)
+summary(OrderList$`Ship Late Day count`)
+summary(OrderList$`Unit quantity`)
+# convertendo variavel para numerico
+summary(OrderList$Weight)
+class(OrderList$Weight)
+OrderList$Weight <- as.numeric(OrderList$Weight)
+
+
+#manipulando dados
+
+
+
