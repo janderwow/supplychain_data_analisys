@@ -77,5 +77,13 @@ OrderList$Weight <- as.numeric(OrderList$Weight)
 
 #manipulando dados
 
+# renomeando observacoes
+OrderList$Carrier[OrderList$Carrier=="V44_3"] <- "V444_3"
+
+# transformando nomes de variaveis em letras minusculas
+names(OrderList) <- tolower(names(OrderList))
+# removendo espaços
+names(OrderList) <- gsub(' ', '_', names(OrderList))
+names(OrderList)
 
 
